@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "title": "Reset Password",
+    "content": "Users can reset their password from Settings > Security. Click on 'Forgot Password' and follow the email verification process. The reset link expires in 24 hours."
+  },
+  {
+    "id": "2",
+    "title": "Account Creation",
+    "content": "To create a new account, navigate to the signup page and provide your email, username, and password. Password must be at least 8 characters with one uppercase letter and one number. Verify your email within 48 hours to activate the account."
+  },
+  {
+    "id": "3",
+    "title": "Payment Methods",
+    "content": "We accept credit cards (Visa, Mastercard, Amex), PayPal, and bank transfers. All transactions are encrypted using SSL. Payment information is stored securely and never shared with third parties."
+  },
+  {
+    "id": "4",
+    "title": "Refund Policy",
+    "content": "Refunds are available within 30 days of purchase. Digital products are non-refundable after download. Contact support@example.com with your order number to initiate a refund. Processing takes 5-7 business days."
+  },
+  {
+    "id": "5",
+    "title": "API Rate Limits",
+    "content": "Free tier: 100 requests per hour. Pro tier: 1000 requests per hour. Enterprise: unlimited. Rate limit headers are included in responses. Exceeding limits returns 429 status code."
+  },
+  {
+    "id": "6",
+    "title": "Data Privacy",
+    "content": "We comply with GDPR and CCPA regulations. User data is encrypted at rest and in transit. Data retention period is 90 days after account deletion. Users can export their data anytime from Settings > Privacy."
+  },
+  {
+    "id": "7",
+    "title": "Two-Factor Authentication",
+    "content": "Enable 2FA from Settings > Security > Two-Factor Authentication. Supports authenticator apps (Google Authenticator, Authy) and SMS. Backup codes are provided during setup. Store them securely."
+  },
+  {
+    "id": "8",
+    "title": "Subscription Plans",
+    "content": "Basic: $9/month with 10GB storage. Pro: $29/month with 100GB storage and priority support. Enterprise: Custom pricing with dedicated account manager. Annual plans get 20% discount."
+  },
+  {
+    "id": "9",
+    "title": "File Upload Limits",
+    "content": "Maximum file size: 50MB for Basic, 500MB for Pro, 5GB for Enterprise. Supported formats: PDF, DOCX, XLSX, PNG, JPG, MP4. Files are scanned for viruses automatically."
+  },
+  {
+    "id": "10",
+    "title": "Customer Support",
+    "content": "Email support: support@example.com (24-48 hour response). Live chat: Available for Pro and Enterprise (9 AM - 5 PM EST). Phone support: Enterprise only. Knowledge base and community forums available to all users."
+  }
+]
