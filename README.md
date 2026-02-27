@@ -1,154 +1,265 @@
+# 🤖 Production-Grade GenAI Assistant with RAG
 
-🤖 Production-Grade GenAI Assistant with RAG
+A scalable, production-ready AI support assistant powered by **Google Gemini 2.5 Flash** and **Retrieval-Augmented Generation (RAG)**. The system delivers grounded, context-aware responses using semantic search, conversation memory, and a modular backend architecture.
 
-A production-ready AI support assistant powered by Google Gemini 2.5 Flash and Retrieval-Augmented Generation (RAG).
-The system delivers grounded, context-aware responses using semantic search and SQLite session persistence.
+---
 
-🚀 Built with modern Gemini 2.5 models (2025)
+# 🚀 Live Demo
 
-✅ System Status: FULLY OPERATIONAL
+🌐 **Deployed URL:** [https://production-grade-genai-assistant-with.onrender.com](https://production-grade-genai-assistant-with.onrender.com)
 
-Backend: Node.js + Express ✅
+---
 
-Database: SQLite ✅
+# ✨ Key Features
 
-Embeddings: gemini-embedding-001 ✅
+✅ End-to-end RAG pipeline
+✅ Semantic search with cosine similarity
+✅ Conversation memory using SQLite
+✅ Grounded responses (anti‑hallucination prompt)
+✅ Production deployment on Render
+✅ Modular backend architecture
+✅ Environment‑secure API key handling
 
-Chat Model: gemini-2.5-flash ✅
+---
 
-Vector Store: 10 chunks loaded ✅
+# 🏗️ System Architecture
 
-RAG Pipeline: Complete ✅
+```
+User Query
+   ↓
+Express API
+   ↓
+Query Embedding (gemini-embedding-001)
+   ↓
+Similarity Search (Top‑K)
+   ↓
+Context Retrieval
+   ↓
+Gemini 2.5 Flash
+   ↓
+Grounded Response
+```
 
-Session Management: SQLite ✅
+---
 
-🏗 Architecture
+# 🔄 RAG Workflow
 
-User → Express API → Query Embedding → Similarity Search → Context Retrieval → Gemini 2.5 Flash → Response
+## 1️⃣ Document Ingestion
 
-🔄 RAG Workflow
-1️⃣ Document Ingestion
+* Load documents from `docs.json`
+* Chunk content (300 words + 50 overlap)
+* Generate embeddings
+* Store vectors in local vector store
 
-Load documents from docs.json
+## 2️⃣ Query Processing
 
-Chunk content (300 words + overlap)
+* Convert user query → embedding
+* Perform cosine similarity search
+* Retrieve top‑K relevant chunks
+* Apply similarity threshold (0.7)
 
-Generate embeddings using gemini-embedding-001
+## 3️⃣ Response Generation
 
-Store in vector database
+* Inject retrieved context into prompt
+* Include conversation history
+* Generate grounded response
+* Low temperature (0.2) to reduce hallucinations
 
-2️⃣ Query Processing
+---
 
-Convert user question → embedding
+# 📊 Embedding Strategy
 
-Cosine similarity search
+| Parameter  | Value                |
+| ---------- | -------------------- |
+| Model      | gemini-embedding-001 |
+| Dimensions | 3072                 |
+| Chunk Size | 300 words            |
+| Overlap    | 50 words             |
+| Similarity | Cosine               |
+| Threshold  | 0.7                  |
+| Retrieval  | Top‑3                |
 
-Retrieve top-K relevant chunks
+---
 
-Apply similarity threshold (0.7)
+# 🛠 Tech Stack
 
-3️⃣ Response Generation
+**Backend**
 
-Inject retrieved context into prompt
+* Node.js
+* Express.js
 
-Include conversation history
+**LLM & AI**
 
-Generate grounded response with Gemini 2.5 Flash
+* Gemini 2.5 Flash
+* gemini-embedding-001
 
-Low temperature (0.2) to reduce hallucinations
+**Database**
 
-📊 Embedding Strategy
+* SQLite (session memory)
 
-Model: gemini-embedding-001
+**Vector Store**
 
-Dimensions: 3072
+* JSON (in‑memory)
 
-Chunk size: 300 words
+**Frontend**
 
-Overlap: 50 words
+* Vanilla JavaScript
+* HTML/CSS
 
-Similarity: Cosine similarity
+**Deployment**
 
-Threshold: 0.7
+* Render
 
-Retrieval: Top-3
+---
 
-💬 Grounding Prompt Strategy
+# 🔌 API Endpoints
 
-The assistant is forced to:
+## POST `/api/chat`
 
-✅ Answer only from retrieved context
+**Request**
 
-✅ Refuse when info missing
-
-✅ Maintain conversation memory
-
-✅ Avoid hallucinations
-
-Fallback message triggers when similarity is low.
-
-🚀 Quick Start
-1. Install dependencies
-npm install
-2. Configure environment
-cp .env.example .env
-
-Add your key:
-
-GEMINI_API_KEY=your_key_here
-PORT=3000
-3. Generate vector store
-npm run ingest
-4. Start server
-npm start
-
-Open:
-
-http://localhost:3000
-📡 API Endpoints
-POST /api/chat
+```json
 {
   "sessionId": "session_123",
   "message": "How can I reset my password?"
 }
-GET /api/health
+```
 
-Returns system status and model info.
+**Response**
 
-🛠 Tech Stack
+```json
+{
+  "reply": "...grounded answer..."
+}
+```
 
-Backend: Node.js + Express
+---
 
-LLM: Gemini 2.5 Flash
+## GET `/api/health`
 
-Embeddings: gemini-embedding-001
+Returns system status, model info, and vector store stats.
 
-Vector Store: JSON (in-memory)
+---
 
-Database: SQLite
+# ⚙️ Local Setup
 
-Frontend: Vanilla JS
+## 1️⃣ Clone Repository
 
-🔒 Security
+```bash
+git clone https://github.com/Shiva1msk/Production-Grade-GenAI-Assistant-with-RAG
+cd Production-Grade-GenAI-Assistant-with-RAG
+```
 
-API keys stored in environment variables
+## 2️⃣ Install Dependencies
 
-.env excluded via .gitignore
+```bash
+npm install
+```
 
-API key restricted to Generative Language API
+## 3️⃣ Configure Environment
 
-Input validation on all endpoints
+```bash
+cp .env.example .env
+```
 
-🚀 Production Improvements (Future)
+Add your key:
 
-Vector DB (Pinecone / Weaviate)
+```
+GEMINI_API_KEY=your_key_here
+PORT=3000
+```
 
-Redis session store
+## 4️⃣ Generate Vector Store
 
-Streaming responses
+```bash
+npm run ingest
+```
 
-Auth layer
+## 5️⃣ Start Server
 
-Monitoring
+```bash
+npm start
+```
 
-⭐ If you like this project, give it a star!
+Open:
+
+👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+# 🔒 Security
+
+* API keys stored in environment variables
+* `.env` excluded via `.gitignore`
+* Input validation on all endpoints
+* No hard‑coded secrets
+
+---
+
+# 📈 Current System Status
+
+✅ Backend: Operational
+✅ RAG Pipeline: Functional
+✅ Embeddings: Working
+✅ Gemini Chat: Working
+✅ Deployment: Live on Render
+
+---
+
+# 🚀 Production Roadmap
+
+## 🥇 High Priority
+
+* [ ] Migrate to Pinecone / Qdrant
+* [ ] Increase knowledge base size
+* [ ] Add streaming responses
+* [ ] Add source citations
+
+## 🥈 Medium Priority
+
+* [ ] Hybrid search (BM25 + vector)
+* [ ] Authentication layer (JWT)
+* [ ] Redis session store
+* [ ] Improved chat UI
+
+## 🥉 Advanced Enhancements
+
+* [ ] Multi‑document upload
+* [ ] Reranking model
+* [ ] Observability & tracing
+* [ ] Tool‑calling agents
+
+---
+
+# 🎯 Use Cases
+
+* AI customer support bot
+* Knowledge base assistant
+* Internal company chatbot
+* Documentation Q&A system
+* Helpdesk automation
+
+---
+
+# ⭐ Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+If you like this project, please ⭐ the repo.
+
+---
+
+# 👨‍💻 Author
+
+**Shiva Kumar Maidam**
+DevSecOps & Software Engineer
+
+---
+
+# 📜 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+> 🚀 Built to demonstrate production-grade RAG architecture with modern Gemini models.
